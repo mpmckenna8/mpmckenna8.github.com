@@ -21,18 +21,17 @@ div {
     margin-top:10px;
     z-index:1;
     background-color:black;
-    float:center;
     left:35%;
     margin-left:-100;
     padding-right:30px;
     
 }
 .content{
-height:400px;
+height:auto;
 
 }
 .nav li {
-	/*Add your CSS here!*/
+    /*Add your CSS here!*/
 	display: inline;
     padding: 5px;
 	border: 2px solid #731313;
