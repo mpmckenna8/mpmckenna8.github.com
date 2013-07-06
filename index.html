@@ -4,8 +4,24 @@
         <title>Matthew McKenna Site</title>
         <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
         <link rel="shortcut icon" href="http://matthewmckenna.zzl.org/joystick.ico" />
-        <script type='text/javascript'  src='indescript.js'></script>
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+        <script type='text/javascript'>
+            $(document).ready(function(){
+                $('.tabs li').click(function(){
+                    if (!$(this).hasClass('selected')){
+                        $('.tabs li').removeClass('selected');
+                        $(this).addClass('selected');
+                    }
+                    var selectionId = $(this).attr('id');
+                    $('.content').fadeOut('slow', function(){
+                        $('div .page').css('display','none');
+                        $('.page#'+selectionId).css('display','block');
+                        $('.content').fadeIn('slow');
+                    });
+                });
+                              
+            });
+            </script>
     </head>
     
 <div class="inde page" id="all" style="display:block;">
