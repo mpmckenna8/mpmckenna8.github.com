@@ -56,10 +56,11 @@ height:auto;
     font-family:Verdana;
     padding-left:0px;
     margin-left:5px;
+
 }
 
 #inheader {
-
+        padding-bottom:30px;
 	
 	margin-top: 55px;
 	height: 70px;
@@ -147,7 +148,7 @@ height:auto;
     border: 1px solid;
     /*background-color: #61d7a4*/;
     margin-bottom:10px;
-    padding-top:38px;
+    padding-top:20px;
     margin-top:10px;
     float:center;
     position:relative;
