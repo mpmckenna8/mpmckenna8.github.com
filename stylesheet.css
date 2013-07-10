@@ -220,6 +220,8 @@ a li:hover {
     color: #000000;
 }
 
+
+
 a {
     color:inherit;
     text-decoration:none;
@@ -234,4 +236,14 @@ float:right;
 display:inline-block;
 margin-right:20px;
 
+}
+
+ul li {
+    cursor:pointer;
+}
+
+ul.tabs li.selected {
+    background-color:#FB5B1F ;
+    color: #000000;
+    
 }
