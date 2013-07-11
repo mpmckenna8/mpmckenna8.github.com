@@ -243,7 +243,7 @@ ul li {
 }
 
 ul.tabs li.selected {
-    background-color:#FB5B1F ;
-    color: #000000;
+    background-color:#000000;
+    color: #FB5B1F;
     
 }
