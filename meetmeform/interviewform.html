@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>Interview Me Form</title>
+        <link/>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+        <!--need to add some validation to my js below !-->
+        <script>
+            $(function() {
+              $( "#datepicker" ).datepicker();
+              });
+            
+            
+        </script>
+	</head>
+	<body>
+        <!--Add your own HTML!-->
+        <div id="header"><h1>Schedule an interview/coffee with Matthew McKenna</h1></div>
+        <div id="wrapper">
+            <div id="inputs">
+                <form name="input" action="#" method="post">
+                    Your Name: <input type="text" name="name" value="name"><br/>
+                        E-mail:<input type="email" name="email" value="emailadd"><br/>
+                    
+                </form>
+                
+            
+            </div>
+            <div id="options">
+                What do you hope to get out of this meeting?<br/>
+                    <textarea name="message"></textarea><br/>
+                When would you like to get together?<br/>
+                Date: <input type="text" id="datepicker"><br/>
+                Time: <input type="text" name="timemeet" value="time"><br/>
+                
+            </div>
+        </div>
+        
+	</body>
+    <!--Still 
+</html>
