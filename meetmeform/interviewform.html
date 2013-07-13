@@ -2,7 +2,7 @@
 <html>
     <head>
 		<title>Interview Me Form</title>
-        <link/>
+        <link rel='stylesheet' type='text/css' href='interstyle.css'/>
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
         <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
         <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
@@ -17,25 +17,29 @@
 	</head>
 	<body>
         <!--Add your own HTML!-->
-        <div id="header"><h1>Schedule an interview/coffee with Matthew McKenna</h1></div>
+        <div id="header"></br><h1>Schedule an interview/coffee with <a href="">Matthew McKenna</a></h1></div>
         <div id="wrapper">
-            <div id="inputs">
+            <div id="inputs"><h3>Contact details:</h3>
                 <form name="input" action="#" method="post">
-                    Your Name: <input type="text" name="name" value="name"><br/>
-                        E-mail:<input type="email" name="email" value="emailadd"><br/>
+                    <p>Your Name: <input type="text" name="name" value="Type name here"></p><br/>
+                    <p>E-mail:<input type="email" name="email" value="Your e-mail"></p><br/>
                     
                 </form>
                 
             
             </div>
+            <br/><br/>
             <div id="options">
-                What do you hope to get out of this meeting?<br/>
-                    <textarea name="message"></textarea><br/>
-                When would you like to get together?<br/>
-                Date: <input type="text" id="datepicker"><br/>
-                Time: <input type="text" name="timemeet" value="time"><br/>
+                <h3>Meeting specifics:</h3>
+                <p>What do you hope to get out of this meeting?<br/>
+                    <textarea name="message"></textarea></p><br/>
+            
+                <p>When would you like to get together?</p><br/>
+                <p>Date: <input type="text" id="datepicker"></p><br/>
+                <p>Time: <input type="text" name="timemeet" value="ex: 4:30pm"></p><br/>
                 
             </div>
+            <button>Submit</button>
         </div>
         
 	</body>
