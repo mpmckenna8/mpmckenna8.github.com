@@ -11,7 +11,16 @@
             $(function() {
               $( "#datepicker" ).datepicker();
               });
-            
+            var mail = document.getElementById("mail");
+            mail.addEventListenter("keyup", function(event){
+                                   if(mail.validity.typeMismatch){
+                                   mail.setCustomValidity("Please enter a valid e-mail address.");
+                                   }
+                                   else{
+                                   mail.setCustomValidity("");
+                                   }
+                                   
+                                   });
             
         </script>
 	</head>
@@ -22,7 +31,7 @@
             <div id="inputs"><h3>Contact details:</h3>
                 <form name="input" action="#" method="post">
                     <p>Your Name: <input type="text" name="name" value="Type name here"></p><br/>
-                    <p>E-mail:<input type="email" name="email" value="Your e-mail"></p><br/>
+                    <p>E-mail:<input type="email" name="email" value="Your e-mail" id="mail"></p><br/>
                     
                 </form>
                 
@@ -43,5 +52,5 @@
         </div>
         
 	</body>
-    <!--Still 
+    
 </html>
