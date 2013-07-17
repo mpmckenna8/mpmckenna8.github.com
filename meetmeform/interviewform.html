@@ -8,19 +8,22 @@
         <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
         <!--need to add some validation to my js below !-->
         <script>
+    
             $(function() {
               $( "#datepicker" ).datepicker();
               });
-            var mail = document.getElementById("mail");
-            mail.addEventListenter("keyup", function(event){
-                                   if(mail.validity.typeMismatch){
-                                   mail.setCustomValidity("Please enter a valid e-mail address.");
-                                   }
-                                   else{
-                                   mail.setCustomValidity("");
-                                   }
-                                   
-                                   });
+                          
+            var email = document.getElementById("mail");
+            email.addEventListener("keyup", function(event){
+                if(email.validity.valid){
+                    error.innerHTML="Please enter a valid e-mail address.";
+                    
+                    }
+                else{
+                    email.setCustomValidity("");
+                    }
+            });
+     
             
         </script>
 	</head>
@@ -32,6 +35,7 @@
                 <form name="input" action="#" method="post">
                     <p>Your Name: <input type="text" name="name" value="Type name here"></p><br/>
                     <p>E-mail:<input type="email" name="email" value="Your e-mail" id="mail"></p><br/>
+                        
                     
                 </form>
                 
@@ -40,8 +44,8 @@
             <br/><br/>
             <div id="options">
                 <h3>Meeting specifics:</h3>
-                <p>What do you hope to get out of this meeting?<br/>
-                    <textarea name="message"></textarea></p><br/>
+                <label>What do you hope to get out of this meeting?</label><br/>
+                    <textarea name="message"></textarea><br/>
             
                 <p>When would you like to get together?</p><br/>
                 <p>Date: <input type="text" id="datepicker"></p><br/>
