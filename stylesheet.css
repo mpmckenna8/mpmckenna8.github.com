@@ -182,6 +182,7 @@ height:auto;
     margin-top: 10px;
     /*background-color: #00af64;*/
     color: #FB5B1F;
+    margin-bottom:15px;
 }
 
 #mapheader {
@@ -246,4 +247,11 @@ ul.tabs li.selected {
     background-color:#000000;
     color: #FB5B1F;
     
+}
+
+#footer {
+    background-color:#FB5B1F ;
+    color: #000000;
+    margin-left:20px;
+    margin-top:15px;
 }
