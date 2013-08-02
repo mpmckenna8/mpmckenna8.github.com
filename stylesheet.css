@@ -104,7 +104,7 @@ height:auto;
     float: right;
     margin-top: 80px;
     width: 87%;
-    height: 1100px;
+    height: 1200px;
     margin-bottom: 10px;
     background-color: #e0e0e0;
     padding-left: 10px;
@@ -126,16 +126,16 @@ height:auto;
     float: left;
     margin-top: 80px;
     width: 9%;
-    height: 1100px;
+    height: 1200px;
     margin-bottom: 10px;
     background-color: #b8eeee;
     margin-left:5px;
     display:inline;
 }
 
-#footer {
+#footerr {
     position: relative;
-    height: 80px;
+    height: 160px;
     background-color: #666633;
     clear: both;
     font-family: Verdana, sans-serif;
@@ -255,3 +255,4 @@ ul.tabs li.selected {
     margin-left:20px;
     margin-top:15px;
 }
+
