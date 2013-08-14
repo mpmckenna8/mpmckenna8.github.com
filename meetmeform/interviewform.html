@@ -4,28 +4,9 @@
 		<title>Interview Me Form</title>
         <link rel='stylesheet' type='text/css' href='interstyle.css'/>
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
         <!--need to add some validation to my js below !-->
-        <script>
-    
-            $(function() {
-              $( "#datepicker" ).datepicker();
-              });
-                          
-            var email = document.getElementById("mail");
-            email.addEventListener("onkeyup", function(event){
-                if(email.validity.typeMismatch) {
-                    email.setCustomValidity("Please enter a valid e-mail address.");
-                    
-                    }
-                else{
-                    email.setCustomValidity("");
-                    }
-            });
-     
-            
-        </script>
+
 	</head>
 	<body>
         <!--Add your own HTML!-->
@@ -54,7 +35,27 @@
             </div>
             <button>Submit</button>
         </div>
-        
+             <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>  
+                <script>
+    
+            $(function() {
+              $( "#datepicker" ).datepicker();
+              });
+                          
+            var email = document.getElementById("mail");
+            email.addEventListener("onkeyup", function(event){
+                if(email.validity.typeMismatch) {
+                    email.setCustomValidity("Please enter a valid e-mail address.");
+                    
+                    }
+                else{
+                    email.setCustomValidity("");
+                    }
+            });
+     
+            
+        </script> 
 	</body>
     
 </html>
