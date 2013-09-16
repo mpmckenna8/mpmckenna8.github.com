@@ -6,23 +6,7 @@
         <link rel="shortcut icon" href="http://mpmckenna8.github.com/bridge.ico" />
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js">
             </script>
-        <script>
-            $(document).ready(function(){
-                $('.tabs li').click(function(){
-                    if (!$(this).hasClass('selected')){
-                        $('.tabs li').removeClass('selected');
-                        $(this).addClass('selected');
-                    }
-                    var selectionId = $(this).attr('id');
-                    $('.content').fadeOut('slow', function(){
-                        $('div .page').css('display','none');
-                        $('.page#'+selectionId).css('display','block');
-                        $('.content').fadeIn('slow');
-                    });
-                });
-                              
-            });
-            </script>
+
     </head>
     
 <div class="inde page" id="all" style="display:block;">
@@ -37,13 +21,15 @@
         </ul>
         
     </div>
-    <div id="inheader">
+    <header>
+        <div id="inheader">
         <p id="inname"><h1>Matthew Philip McKenna Vanity Site
             <a id="inemail" href="mailto:mpmckenna8@gmail.com">mpmckena8@gmail.com</a>
             <a href="https://twitter.com/mpmckenna8" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @mpmckenna8</a>
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></h1>
         </p>
     </div>
+        </header>
     <div class="content">
     <div class="resume page" id="resu" style="display:block;">
         <h1>My digital resum&eacute;s:<h1>
@@ -139,6 +125,7 @@
         src="https://www.gittip.com/mpmckenna8/widget.html"
         width="48pt" height="22pt"></iframe>
         </div>
+    <script type="text/javascript" src="indescript.js"></script>
 </body>
 </div>
     
