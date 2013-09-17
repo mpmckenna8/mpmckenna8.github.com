@@ -10,7 +10,7 @@
 	</head>
 	<body>
         <!--Add your own HTML!-->
-        <div id="header"></br><h1>Schedule an interview/coffee with <a href="">Matthew McKenna</a></h1></div>
+       <header> <div id="header"></br><h1>Schedule an interview/coffee with <a href="">Matthew McKenna</a></h1></div></header>
         <div id="wrapper">
             <div id="inputs"><h3>Contact details:</h3>
                 <form name="input" action="#" method="post">
@@ -37,24 +37,10 @@
         </div>
              <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
         <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>  
-                <script>
-    
-            $(function() {
-              $( "#datepicker" ).datepicker();
-              });
-                          
-            var email = document.getElementById("mail");
-            email.addEventListener("onkeyup", function(event){
-                if(email.validity.typeMismatch) {
-                    email.setCustomValidity("Please enter a valid e-mail address.");
+                <script src="interview.js">
                     
-                    }
-                else{
-                    email.setCustomValidity("");
-                    }
-            });
-     
-            
+    
+                       
         </script> 
 	</body>
     
