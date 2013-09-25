@@ -256,3 +256,19 @@ ul.tabs li.selected {
     margin-top:15px;
 }
 
+@media screen and (max-width: 1150px){
+.left{
+	display:none;
+	width:0px;
+	}
+.right{
+float:left;
+
+margin-right:auto;
+margin-left:10px;
+height:auto;
+}
+#header {
+margin-left:10px;
+}
+}
