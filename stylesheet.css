@@ -263,7 +263,7 @@ ul.tabs li.selected {
 	}
 .right{
 float:left;
-
+width:auto;
 margin-right:auto;
 margin-left:10px;
 height:auto;
