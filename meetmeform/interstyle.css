@@ -27,3 +27,15 @@ a {
     text-decoration:none;
     color:#FB5B1F;
 }
+
+.inpuQ {
+	width:90px;
+	position:relative;
+	display:inline-block; 
+	border:0px;
+}
+input{
+	display:inline-block;
+	
+	position:relative;
+}
