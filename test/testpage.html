@@ -1,22 +1,38 @@
-<Html>
-<Head>
-  <Link href='//api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.css' rel='stylesheet' />
-  <!--[if lte IE 8]>
-    <link href='//api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.ie.css' rel='stylesheet' />
-  <![endif]-->
-  <Script src='//api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.js'></Script>
-  <Style>
-  #map {
-    width:600px;
-    height:400px;
-  }
-  </Style>
-</Head>
-<Body>
-  <Div id='map' class='dark'></Div>
-  <Script type='text/javascript'>
-  var map = L.mapbox.map('map', 'examples.map-y7l23tes')
-      .setView([37.9, -77], 5);
-  </Script>
-</Body>
-</Html>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Stamen simple basemap</title>
+        <script type="text/javascript" src="http://leaflet.cloudmade.com/dist/leaflet.js"></script>
+        <link rel="stylesheet" href="http://leaflet.cloudmade.com/dist/leaflet.css" />
+        <!--[if lte IE 8]><link rel="stylesheet" href="http://leaflet.cloudmade.com/dist/leaflet.ie.css" /><![endif]-->
+        
+        <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.3"></script>
+
+        <style type="text/css">
+            .map {
+                width: 700px;
+                height: 750px;
+                margin: 0 0 1em 0;
+            }
+            </style>
+    </head>
+    <body onload="initialize()">
+        <div id="terrain" class="map"></div>
+        <div id="watercolor" class="map"></div>
+        <div id="toner" class="map"></div>
+        
+        <script type="text/javascript">
+            function initialize() {
+                var layers = ["terrain"];
+                
+                var layer = "terrain";
+                var map = new L.Map(layer, {
+                                    center: new L.LatLng(37.75, -122.45),
+                                    zoom: 12
+                                    });
+                map.addLayer(new L.StamenTileLayer(layer));
+                
+            }
+            </script>
+    </body>
+</html>
