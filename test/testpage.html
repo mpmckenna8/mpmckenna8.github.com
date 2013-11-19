@@ -1,38 +1,28 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Stamen simple basemap</title>
-        <script type="text/javascript" src="http://leaflet.cloudmade.com/dist/leaflet.js"></script>
-        <link rel="stylesheet" href="http://leaflet.cloudmade.com/dist/leaflet.css" />
-        <!--[if lte IE 8]><link rel="stylesheet" href="http://leaflet.cloudmade.com/dist/leaflet.ie.css" /><![endif]-->
-        
-        <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.3"></script>
+<head>
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
+</head>
+<body>
+    <div id="viz"></div>
+    
+    Doin d3 real simple.
+    <script type="text/javascript">
 
-        <style type="text/css">
-            .map {
-                width: 700px;
-                height: 750px;
-                margin: 0 0 1em 0;
-            }
-            </style>
-    </head>
-    <body onload="initialize()">
-        <div id="terrain" class="map"></div>
-        <div id="watercolor" class="map"></div>
-        <div id="toner" class="map"></div>
-        
-        <script type="text/javascript">
-            function initialize() {
-                var layers = ["terrain"];
-                
-                var layer = "terrain";
-                var map = new L.Map(layer, {
-                                    center: new L.LatLng(37.75, -122.45),
-                                    zoom: 12
-                                    });
-                map.addLayer(new L.StamenTileLayer(layer));
-                
-            }
-            </script>
-    </body>
+    var sampleSVG = d3.select("#viz")
+        .append("svg")
+        .attr("width", 100)
+        .attr("height", 100);    
+
+    sampleSVG.append("circle")
+        .style("stroke", "gray")
+        .style("fill", "white")
+        .attr("r", 40)
+        .attr("cx", 50)
+        .attr("cy", 50)
+        .on("mouseover", function(){d3.select(this).style("fill", "aliceblue");})
+        .on("mouseout", function(){d3.select(this).style("fill", "white");});
+    
+    </script>
+</body>
 </html>
