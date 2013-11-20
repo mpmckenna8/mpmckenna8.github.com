@@ -256,6 +256,11 @@ ul.tabs li.selected {
     margin-top:15px;
 }
 
+.jobber {
+	font-size:1.05em;
+	font-family:futura;
+}
+
 @media screen and (max-width: 1150px){
 .left{
 	display:none;
