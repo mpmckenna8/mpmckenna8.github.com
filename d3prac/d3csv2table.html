@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
+     <link rel="stylesheet" href="bananaStyle.css" />
+     
+</head>
+<body>
+<p>This part was made from <a href="http://christopheviau.com/d3_tutorial/">this tutorial on some into to d3 stuff.</a></p>
+	<div id="container"></div>
+	</br>
+	<p>This part is a little bit of a hack from a jsfiddle thing I need to link to still.</p>
+    <div id="viz"></div>
+    <div id="circle"></div>
+<script type="text/javascript">
+    
+	/* this is from: http://christopheviau.com/d3_tutorial/
+
+*/
+
+    var sampleSVG = d3.select("#circle")
+        .append("svg")
+        .attr("width", 100)
+        .attr("height", 100);    
+
+    sampleSVG.append("circle")
+        .style("stroke", "gray")
+        .style("fill", "white")
+        .attr("r", 40)
+        .attr("cx", 50)
+        .attr("cy", 50)
+        .on("mouseover", function(){d3.select(this).style("fill", "red");})
+        .on("mouseout", function(){d3.select(this).style("fill", "white");});
+        
+        
+        d3.text("bannanaquant2.csv", function(datasetText) {
+
+var parsedCSV = d3.tsv.parseRows(datasetText);
+
+var sampleHTML = d3.select("#viz")
+    .append("table")
+    .style("border-collapse", "collapse")
+    .style("border", "2px black solid")
+
+    .selectAll("tr")
+    .data(parsedCSV)
+    .enter().append("tr")
+
+    .selectAll("td")
+    .data(function(d){return d;})
+    .enter().append("td")
+    .style("border", "1px black solid")
+    .style("padding", "5px")
+    .on("mouseover", function(){d3.select(this).style("background-color", "aliceblue")})
+    .on("mouseout", function(){d3.select(this).style("background-color", "white")})
+    .text(function(d){return d;})
+    .style("font-size", "12px");
+});
+
+//this part is from shawnbot's jsfiddle thing
+d3.tsv("bannanaquant2.csv", function(data) {
+    // the columns you'd like to display
+    var columns = ["countries", "item", "2011"];
+
+    var table = d3.select("#container").append("table"),
+        thead = table.append("thead"),
+        tbody = table.append("tbody");
+
+    // append the header row
+    thead.append("tr")
+        .selectAll("th")
+        .data(columns)
+        .enter()
+        .append("th")
+            .text(function(column) { return column; });
+
+    // create a row for each object in the data
+    var rows = tbody.selectAll("tr")
+        .data(data)
+        .enter()
+        .append("tr");
+
+    // create a cell in each row for each column
+    var cells = rows.selectAll("td")
+        .data(function(row) {
+            return columns.map(function(column) {
+                return {column: column, value: row[column]};
+            });
+        })
+        .enter()
+        .append("td")
+            .text(function(d) { return d.value; });
+});
+    
+    </script>
+</body>
+</html>
