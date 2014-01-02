@@ -45,6 +45,7 @@ var sampleHTML = d3.select("#viz")
 
     .selectAll("tr")
     .data(parsedCSV)
+    .attr("2011",[notNull])
     .enter().append("tr")
 
     .selectAll("td")
