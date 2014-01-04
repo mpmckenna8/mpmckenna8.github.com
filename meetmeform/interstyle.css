@@ -39,3 +39,9 @@ input{
 	
 	position:relative;
 }
+
+.notes{
+	width:400px;
+	height: 80px;
+	margin-bottom:25px;
+}

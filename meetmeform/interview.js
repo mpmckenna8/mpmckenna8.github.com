@@ -1,4 +1,4 @@
-$(function() {
+$(document).ready(function() {
   $( "#datepicker" ).datepicker();
   });
 
@@ -13,4 +13,4 @@ email.addEventListener("onkeyup", function(event){
                        }
                        });
 
-/* also need to do stuff from http://jquery.bassistance.de/validate/demo/
+// also need to do stuff from http://jquery.bassistance.de/validate/demo/
