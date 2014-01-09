@@ -33,10 +33,12 @@ a {
 	position:relative;
 	display:inline-block; 
 	border:0px;
+	padding:-10px;
 }
 input{
 	display:inline-block;
-	
+	    font-family: Verdana, Arial, sans-serif;
+    color: black;
 	position:relative;
 }
 
@@ -44,4 +46,9 @@ input{
 	width:400px;
 	height: 80px;
 	margin-bottom:25px;
+}
+
+
+input:invalid {
+  box-shadow: 0 0 5px 1px red;
 }

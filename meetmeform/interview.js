@@ -4,7 +4,7 @@ $(document).ready(function() {
 
 var email = document.getElementById("mail");
 email.addEventListener("onkeyup", function(event){
-                       if(email.validity.valid) {
+                       if(email.validity.typeMismatch) {
                        email.setCustomValidity("Please enter a valid e-mail address.");
                        
                        }
