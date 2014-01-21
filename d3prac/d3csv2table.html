@@ -45,7 +45,7 @@ var sampleHTML = d3.select("#viz")
 
     .selectAll("tr")
     .data(parsedCSV)
-    .attr("2011",[notNull])
+
     .enter().append("tr")
 
     .selectAll("td")
@@ -67,6 +67,8 @@ d3.tsv("bannanaquant2.csv", function(data) {
     var table = d3.select("#container").append("table"),
         thead = table.append("thead"),
         tbody = table.append("tbody");
+        
+        console.log(table)
 
     // append the header row
     thead.append("tr")
@@ -90,8 +92,12 @@ d3.tsv("bannanaquant2.csv", function(data) {
             });
         })
         .enter()
+        .sort(function(a,b){
+        	return a.name - b.name
+        })
         .append("td")
-            .text(function(d) { return d.value; });
+            .text(function(d) { 
+            return d.value; });
 });
     
     </script>
