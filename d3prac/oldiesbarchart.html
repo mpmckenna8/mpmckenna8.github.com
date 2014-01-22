@@ -12,9 +12,21 @@
   text-anchor: end;
 }
 
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: black;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
 </style>
 <svg class="chart"></svg>
 <script src="http://d3js.org/d3.v3.min.js"></script>
+
 <script>
 
 var width = 420,
