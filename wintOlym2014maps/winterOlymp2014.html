@@ -1,0 +1,24 @@
+<Html>
+<Head>
+	<!-- want to ask about this, is this their default styling for tiles or rules for cartoCSS and can I can change it up?  -->
+<link href='//api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.css' rel='stylesheet' />
+<script src='//api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.js'></script>
+  <Style>
+
+  #map {
+    width:600px;
+    height:400px;
+  }
+  </Style>
+</Head>
+<Body>
+<!-- this is the div I'm putting the map in  Sochi is at 43.5854823, 39.723109-->
+  <Div id='map' class='dark'></Div>
+  <Script type='text/javascript'>
+  var map = L.mapbox.map('map', 'mpmckenna8.map-5hpnzi5m')
+      .setView([43.5854823, 39.723109], 5);
+      
+var markerLayer = L.mapbox.markerLayer().loadURL('olympCities.geojson').addTo(map)
+  </Script>
+</Body>
+</Html>
