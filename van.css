@@ -1,0 +1,68 @@
+   .shaddow {
+       margin:30px 50px;
+  background-color:#ffffff;
+  border:1px solid black;
+  opacity:0.6;
+  filter:alpha(opacity=60); /* For IE8 and earlier */
+  z-level:-1;
+   }
+    body{
+        
+        background:url("http://i.imgur.com/lQeWsTW.jpg?1");
+        background-size:cover;
+        background-position: center center;
+        background-repeat:no-repeat;
+        background-attachment:fixed;
+        color:black;
+        font-family:Helvetica;
+    }
+    p{
+        font-size:24px;
+        color:black;
+    }
+   div input{
+       border:1;
+       padding:12px;
+       font-size:18px;
+   }
+   div input[type="submit"]{
+       background:limegreen;
+       color:black;
+       
+   }
+
+.nav {
+    position: fixed;
+    
+    z-index:1;
+    
+    left:35%;
+    margin-left:-100;
+    padding-right:30px;
+    
+}
+
+.nav li {
+    /*Add your CSS here!*/
+	display: inline;
+    padding: 5px;
+	border: 2px solid #731313;
+	font-family: Futura, Tahoma, sans-serif;
+	border-radius: 5px 5px;
+	
+    background-color:#FB5B1F;
+    
+}
+
+
+   
+   .inde div {
+    border-radius: 5px;
+    border: 2px solid #731313;
+    
+}
+
+a {
+    color:inherit;
+    text-decoration:none;
+}
