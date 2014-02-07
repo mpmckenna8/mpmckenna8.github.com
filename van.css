@@ -1,12 +1,26 @@
-   .shaddow, .nav, #inheader, #footer{
+   
+
+   
+   .shaddow, .nav, #inheader, #footer
+   {
        margin:30px 50px;
-  background-color:#ffffff;
-  border:1px solid black;
-  opacity:0.6;
-  filter:alpha(opacity=60); /* For IE8 and earlier */
-  z-level:-1;
-      border: 2px solid #731313;
+    background-color:#ffffff;
+    border:1px solid black;
+    opacity:0.6;
+    filter:alpha(opacity=60); /* For IE8 and earlier */
+    z-level:-1;
+    border: 2px solid #731313;
    }
+
+ul li {
+    cursor:pointer;
+}
+
+ul.tabs li.selected {
+    background-color:black;
+    color: white;
+    
+}
 
 
     body{
@@ -58,7 +72,7 @@ div .nav {
 
 
    
-   .inde div {
+.inde div {
     border-radius: 5px;
     border: 2px solid #731313;
     
@@ -71,6 +85,8 @@ a {
 
 header{
     padding-top:70px;
+    font-size:18px;
+
 }
 
 div .imagi {
@@ -82,8 +98,41 @@ div .imagi {
    }
 
 #footer .gittip{
-    text-align:center;
+
     margin-right:auto;
     margin-left:auto;
     border-width:0px;
 }
+
+#inemail{
+    font-size:15px;
+    text-align:center;
+    margin-bottom:49px;
+}
+
+#footer{
+text-align:center;}
+
+div.resume li{
+    text-size:77px;
+}
+
+.headright{
+    float:right;
+    position:relative;
+    z-level:2;
+    display:inline;
+    margin-right: 60px;
+    margin-top:-95px;
+
+}
+
+ header div#inname{
+    padding-left:20px;
+    display:none:
+}
+
+#tweeter{
+border:0px
+}
+
