@@ -3,26 +3,78 @@
 	<!-- want to ask about this, is this their default styling for tiles or rules for cartoCSS and can I can change it up?  -->
 <link href='//api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.css' rel='stylesheet' />
 <script src='//api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.js'></script>
+<script src="olymStates.geojson" type="text/javascript"></script>
   <Style>
 
   #map {
     width:900px;
     height:600px;
+    margin-right:auto;
+    margin-left:auto;
+    
   }
+  
+  .header{
+      margin-right:auto;
+      margin-left:auto;
+      text-align:center;
+  }
+  
+  
   </Style>
+  <title>Olympic 2014 Region Map</title>
 </Head>
 <Body>
-<h1>Sochi region has a lot going on</h1>
+<div class="header"><h1>Sochi region has a lot going on</h1></div>
 <!-- this is the div I'm putting the map in  Sochi is at 43.5854823, 39.723109-->
   <Div id='map' class='dark'></Div>
   
-  <p>The 2014 winter Olympics are gearing up and Sochi is in a fascinating region w/ a lot of it's neighboring states and countries in the news. Even if I don't get around to adding news stories to the map it's still an cool region to look at maps of. </p>
+  <p>The 2014 winter Olympics are gearing up and Sochi is in a fascinating region w/ a lot of it's neighboring states and countries in the news. Even if I don't get around to adding news stories to the map it's still an cool region to look at maps of especially with the cyrillic scrips. Which reminds me of a map I saw of the <a href="http://i.imgur.com/QbpkvZR.jpg">Boston Area w/ cyrillic scripts.</a> </p>
+  
+  <p>Click on one of the outlined states for its name in a format I can attempt to pronounce at least...</p>
   
   <Script type='text/javascript'>
+      
+      
+      
+      //insert your maptile code as the second argument to map()
   var map = L.mapbox.map('map', 'mpmckenna8.map-5hpnzi5m')
       .setView([43.5854823, 39.723109], 5);
+     
+    var layer
       
-//var markerLayer = L.mapbox.markerLayer().loadURL('olympCities.geojson').addTo(map)
+      function onEachFeature(feature, layer) {
+          var popupContent = "<p>State name so a Westerner can read it is: <em>" +
+          feature.properties.name + "<em>.</p>";
+          
+          if (feature.properties) {
+             layer.bindPopup(popupContent);
+          }}
+  
+  
+  
+
+
+
+      var markerLayer = L.geoJson(states, {
+                                  style:
+                                  function(feature){
+                                  switch(feature.properties.name){
+                                  case "North Ossetia": return{
+                                  color:"red"};
+                                  case "Chechnya": return{
+                                  color:"red"};
+                                  }}
+                                  
+                                  
+                                  ,
+                                  onEachFeature: onEachFeature
+                                  }
+                                  
+                                  ).addTo(map);
+
+
+
   </Script>
 </Body>
 </Html>
