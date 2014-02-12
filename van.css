@@ -6,7 +6,7 @@
        margin:30px 50px;
     background-color:#ffffff;
     border:1px solid black;
-    opacity:0.6;
+    opacity:0.7;
     filter:alpha(opacity=60); /* For IE8 and earlier */
     z-level:-1;
     border: 2px solid #731313;
@@ -115,6 +115,10 @@ text-align:center;}
 
 div.resume li{
     text-size:77px;
+    
+}
+.headright #inemail{
+    padding-left:5px;
 }
 
 .headright{
@@ -136,3 +140,30 @@ div.resume li{
 border:0px
 }
 
+.resume div {
+border-width:1px;
+font-size:15px;
+padding-top:10px;
+padding-bottom:10px;
+width:200px;
+text-align:left;
+padding-left:40px;
+text-shadow: gold;
+opacity:1;
+font-weight:700;
+}
+
+a:hover {
+    background-color:black ;
+    color: #ffffff;
+}
+
+a div:hover {
+    background-color:black ;
+    color: #ffffff;
+}
+
+a li:hover {
+    background-color:black ;
+    color: #ffffff;
+}
