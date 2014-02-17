@@ -127,7 +127,7 @@ div.resume li{
     z-level:2;
     display:inline;
     margin-right: 60px;
-    margin-top:-95px;
+    margin-top:-105px;
 
 }
 
@@ -166,4 +166,8 @@ a div:hover {
 a li:hover {
     background-color:black ;
     color: #ffffff;
+}
+
+.content div {
+padding: 10px
 }
