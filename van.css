@@ -1,7 +1,8 @@
-   
 
-   
-   .shaddow, .nav, #inheader, #footer
+
+
+
+.shaddow, .nav, #inheader, #footer
    {
        margin:30px 50px;
     background-color:#ffffff;
@@ -22,10 +23,14 @@ ul.tabs li.selected {
     
 }
 
+.resume li {
+    margin-left:10px;
+}
 
-    body{
-        background:url("http://i.imgur.com/lQeWsTW.jpg?1");
-        background-size:cover;
+
+body{
+    background:url("http://i.imgur.com/lQeWsTW.jpg?1");
+    background-size:cover;
         background-position: center center;
         background-repeat:no-repeat;
         background-attachment:fixed;
@@ -111,7 +116,10 @@ div .imagi {
 }
 
 #footer{
-text-align:center;}
+text-align:center;
+}
+
+
 
 div.resume li{
     text-size:77px;
@@ -170,4 +178,9 @@ a li:hover {
 
 .content div {
 padding: 10px
+}
+
+#footer p{
+font-size:18px;
+font-weight:600;
 }
