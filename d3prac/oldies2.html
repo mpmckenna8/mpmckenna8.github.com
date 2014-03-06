@@ -81,7 +81,11 @@ d3.csv("data_vsvzs.csv", type, function(error, data) {
       .attr("x", function(d) { return x(d.country); })
       .attr("width", x.rangeBand()+ 5)
       .attr("y", function(d) { return y(d.frequency); })
-      .attr("height", function(d) { return height - y(d.frequency); });
+      .attr("height", function(d) { return height - y(d.frequency); })
+       .append("title")
+       .text(function(d){
+             return d.number_per_100_000_of_the_population
+             });
 
 });
 
