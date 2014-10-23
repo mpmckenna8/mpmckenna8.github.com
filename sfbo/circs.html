@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Leaflet w/ geojson Polygons & addStyle()</title>
+ <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+       <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+        <!--[if lte IE 8]><link rel="stylesheet" href="http://leaflet.cloudmade.com/dist/leaflet.ie.css" /><![endif]-->
+
+        <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.3"></script>
+<script type="text/javascript" src="./sfBOSleaf.geojson" ></script>
+<script src="http://leaflet.github.io/Leaflet.label/leaflet.label.js"></script>
+<link rel="stylesheet" href="http://leaflet.github.io/Leaflet.label/leaflet.label.css" />
+<script type="text/javascript" src="./labelSFbos.geojson" ></script>
+
+         <style type="text/css">
+            #map {
+                width: 100%;
+                height: 509px;
+
+            }
+
+            .distPoly {
+              opacity:1;
+              fill:purple;
+            }
+            .leaflet-label {
+              background:none;
+               left: -22px;
+              border:none;
+              background-clip:none;
+            }
+            .leaflet-label:before {
+	border-right: 0px solid black;
+	border-right-color: inherit;
+	left: -10px;
+
+  .labeler{
+    text-shadow: 2px 2px orange;
+  
+    height:20px
+  }
+}
+        </style>
+    </head>
+    <body onload="initialize()">
+        <div id="map" ></div>
+
+        <script type="text/javascript">
+            function initialize() {
+
+
+
+                    var watercolor = new  L.StamenTileLayer("watercolor");
+                    var terrain = new L.StamenTileLayer("terrain");
+                    var toner= new  L.StamenTileLayer("toner");
+
+                    var bases = {
+                        "Watercolor":watercolor,
+                        "Terrain":terrain,
+                        "Toner":toner
+                    }
+                    var map = new L.Map('map', {
+                                        center: [37.75, -122.45],
+                                        zoom:11,
+                                        layers:toner
+                                        })
+
+
+          var supRace = [
+          {dis:"02",
+          Candidates:["Farrell, Mark", "Carballo, Juan-Antonio"]
+        },
+        {dis:"04",
+        Candidates:["Katy Tang"]
+      },
+      {dis:"06",
+      Candidates:["Kim, Jane", "Nulty, Michael", 'Salaverry, David Carlos', "Jamie Whitaker" ]
+    },
+    {dis:"08",
+    Candidates:["SCOTT WIENER", "TOMMY BASSO", "GEORGE DAVIS", 'JOHN NULTY', "MICHAEL PETRELIS" ]
+  },
+  {dis:"10",
+  Candidates:["MALIA COHEN", "ED DONALDSON", "TONY KELLY", "SHAWN M. RICHARD", "MARLENE TRAN" ]
+},
+
+
+          ]
+
+
+
+
+function onEachFeature(feat, layer){
+
+layer.bindPopup('No race this year in district '+ feat.properties.DISTRICT)
+
+for (i in supRace){
+if(feat.properties.DISTRICT ===supRace[i].dis){
+  console.log(supRace[i].Candidates.length)
+  console.log(supRace[i].Candidates.toString() )
+
+var rulLi = '<ul><li>'
+
+var endLi = '</ul>'
+
+
+  layer.bindPopup('Candidates running in district ' + supRace[i].dis +' are: ' +  rulLi + supRace[i].Candidates.join('</li><li>')
+
+       )
+}
+
+}
+
+
+
+ //console.log(parseInt(feat.properties.DISTRICT))
+}
+
+
+
+
+                    var bosBords = L.geoJson(bords,{onEachFeature:onEachFeature}).addTo(map);
+
+                    bosBords.addData(bords,{onEachFeature:onEachFeature})
+                    .setStyle(function(feat){
+
+                    //  console.log(feat.properties.DISTRICT);
+                      if(feat.properties.DISTRICT === "01"){
+                return      {fillColor:'green',
+                      color:'pink',fillOpacity:.1}}
+                      else if(feat.properties.DISTRICT === "02"){
+                return      {fillColor:'#a50f15',
+                      color:'pink',fillOpacity:.5}}
+                      else if(feat.properties.DISTRICT === "03"){
+                return      {fillColor:'purple',
+                      color:'pink',fillOpacity:.1}}
+                      else if(feat.properties.DISTRICT === "04"){
+                return      {fillColor:'#ef3b2c',
+                      color:'pink',fillOpacity:.7}}
+                      else if(feat.properties.DISTRICT === "05"){
+                return      {fillColor:'#a8ddb5',
+                      color:'pink',fillOpacity:.1}}
+                      else if(feat.properties.DISTRICT === "06"){
+                return      {fillColor:'#67000d',
+                      color:'pink',fillOpacity:.7}}
+                      else if(feat.properties.DISTRICT === "07"){
+                return      {fillColor:'#0868ac',
+                      color:'pink',fillOpacity:.1}}
+                      else if(feat.properties.DISTRICT === "08"){
+                return      {fillColor:'#fc9272',
+                      color:'pink',fillOpacity:.7}}
+                      else if(feat.properties.DISTRICT === "09"){
+                return      {fillColor:'#a6cee3',
+                      color:'pink',fillOpacity:.1}}
+                      else if(feat.properties.DISTRICT === "10"){
+                return      {fillColor:'#fcbba1',
+                      color:'pink',fillOpacity:.7}}
+                      else if(feat.properties.DISTRICT === "11"){
+                return      {fillColor:'#b2df8a',
+                      color:'pink',fillOpacity:.1}}
+
+}
+            )
+
+//Add labels layer
+var labelStyle = {
+    color: 'pink',
+    opacity: 0
+
+};
+
+var labelMarkerOptions = {
+        opacity: 0,
+        fillOpacity: .3,
+        fillColor:'white',
+
+};
+
+var labelLayer = L.geoJson(labs, {
+        pointToLayer: function (feature, latlng) {
+                return L.circleMarker(latlng, labelMarkerOptions);
+        },
+        onEachFeature: function (feature, layer) {
+
+
+                layer.bindLabel(feature.properties.district, {noHide:true,
+                  //direction:'',
+                  offset:[12, -10],
+                  className:'labeler'});
+
+                console.log(layer)
+        }
+});
+
+
+labelLayer.eachLayer(function(l) {l.showLabel();});
+
+
+map.addLayer(labelLayer, {insertAtTheBottom:true});
+
+
+bosBords.on('click', function(e){
+
+labelLayer.bringToBack();
+  //console.log('hee ha')
+  //map.removeLayer(labelLayer)
+})
+
+
+
+// says layercontrol no longer defined, need to see what it is now...
+//layerControl.addOverlay(labelLayer, 'boslab');
+}
+
+        </script>
+    </body>
+</html>
