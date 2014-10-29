@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+    <style>
+
+
+
+</style>
+<body>
+  <div><h1 class="heady">MLB Total World Series Wins by Franchise</h1></div>
+  <div class='boxer'></div>
+  <div class='readme'>
+  <p>
+     This is a fairly simple column chart with some bars representing each MLB team
+     with the height showing the amount of World Series they have won.  If you move your mouseover or select a bar
+     the corresponding label on the map should change to red.
+
+   </br>
+ </br>
+
+
+     Some things I learned making this map is that there are a large proportion of teams in the northeast and that the Yankees
+     winning all the time made the MLB boring while I was growing up. It seems like some non historically dominant teams have been making
+     it deep into the playoffs lately though.  Hopefully the league keeps it up.
+
+  </p>
+  <p>The information for this map came from <a href='http://en.wikipedia.org/wiki/List_of_World_Series_champions'>a wikipedia page about world series champs</a>, with Baseball Team location provided by a <a href='https://github.com/mpmckenna8/GeoJSON-Ballparks'> github repo maintained by James Fee </a> and the map data was taken
+  from <a href='https://github.com/mbostock/us-atlas'>Mike Bostocks Atlas repo with some basic datasets mostly derived from US census bureau derived shapefiles.</a>  You can also feel free to help make this all way better:<a href='https://github.com/mpmckenna8/geo/tree/master/chartMap' see the code on github.</a> </p>
+  </div>
+<script src="d3.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
+<link rel="stylesheet" href="serStyle.css" />
+<script src="series.js">        </script>
+
+
+    </body>

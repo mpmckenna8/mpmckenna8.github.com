@@ -1,0 +1,167 @@
+.bar {
+  fill:pink
+}
+
+.axis{
+  stroke:white;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: yellow;
+  shape-rendering: crispEdges;
+}
+
+.x.axis {
+//  stroke:white;
+//  fill:white;
+  color:yellow
+}
+
+
+.bar.Kansas{
+  fill:#15317E;
+  stroke:#74B4FA
+}
+
+.bar.Yankees {
+  fill: #1C2841;
+  stroke:#FFFFFF
+}
+
+.bar.Giants{
+  fill:#F2552C;
+  stroke:#FFFDD0
+}
+
+.bar.Cardinals{
+  fill:#C41E3A;
+  stroke:#FFFFFF
+}
+
+.bar.Dodgers{
+  fill:#083C6B;
+  stroke: #FFFFFF
+}
+
+.bar.Athletics{
+  fill:#003831;
+  stroke:#FFD800
+}
+
+.bar.Boston {
+  fill:#C60C30;
+  stroke:#002244
+}
+
+.bar.Detroit {
+  fill:#001742;
+  stroke:#FFFFFF
+}
+
+.bar.Cubs {
+  fill:#003279;
+  stroke:#CC0033
+}
+
+
+.bar.Braves {
+  fill:#002F5F;
+  stroke:#B71234
+}
+.bar.Reds {
+  fill:#C6011F;
+  stroke:#FFFFFF
+}
+
+.bar.Phillies {
+  fill:#BA0C2F;
+  stroke:#003087
+}
+
+.bar.Pirates {
+  fill:#FDB829;
+  stroke:#ffffff
+}
+
+.bar.Orioles {
+  fill:#ED4C09;
+  stroke:#ffffff
+}
+
+.bar.Twins {
+  fill:#072754;
+  stroke:#C6011F
+}
+
+.bar.Indians {
+  fill:#D30335;
+  stroke:#003366
+}
+
+.bar.White {
+  fill:white;
+  stroke:#FFFFFF
+}
+
+.bar.Mets {
+  fill:#002C77;
+  stroke:#FB4F14
+}
+
+.bar.Marlins {
+  fill:#FFD100;
+  stroke:#0077C8
+}
+
+
+.bar.Jays {
+  fill:#003DA5;
+  stroke:#FFFFFF
+}
+
+.bar.Arizona {
+  fill:#A71930;
+  stroke:#DBCEAC
+}
+
+
+.bar.Angels {
+  fill:#B71234;
+  stroke:#002244
+}
+
+
+.graticule{
+  fill:none;
+  stroke:none
+}
+
+.land{
+  stroke:white;
+  fill:none;
+  fill-opacity:.3;
+}
+
+.state-boundary {
+  stroke:white;
+  fill:none
+}
+
+.stads{
+  stroke:red;
+  color:red
+}
+
+.heady{
+  width:100%;
+  margin-right:auto;
+  margin-left:auto;
+  text-align:center
+}
+
+.container{
+  margin-right:auto;
+  margin-left:60px;
+}
