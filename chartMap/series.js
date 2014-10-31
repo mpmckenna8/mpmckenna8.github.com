@@ -144,8 +144,8 @@ d3.json("./us.json", function(error, us) {
      .append('path')
      .attr('d', path)
      .attr('class', function(d,i){
-       console.log(d);
-       return 'stads'
+       console.log('stads classin', d);
+       return 'stads ' + d.properties.id
      })
      .attr('fill',function(d){
        console.log(d.properties)
@@ -158,7 +158,7 @@ d3.json("./us.json", function(error, us) {
      .enter()
      .append('text')
      .text(function(d){
-       console.log(d.properties.Team)
+      // console.log(d.properties.Team)
        return d.properties.Team
      })
          .attr("transform", function(d) {
@@ -179,7 +179,7 @@ d3.json("./us.json", function(error, us) {
     .attr("dy", ".41em")
     .attr('dx', '4em')
     .text(function(d){
-      console.log(d.properties.Team)
+      //console.log(d.properties.Team)
       return d.properties.Team
     })
     .attr('d',path)
@@ -193,7 +193,7 @@ d3.json("./us.json", function(error, us) {
          return 'white'
        })
        .attr('class', function (d){
-         return d.properties.id
+         return 'citLabs ' + d.properties.id
 
        })
        .attr('fill', 'red')
@@ -328,17 +328,41 @@ return 'translate(' + coords + ')'
 
        })
 
+d3.select('#info')
+.style('opacity', .4)
+
 
   d3.selectAll('.bar')
   .on('mouseover', function(d){
-    console.log( this)
+    console.log( d)
+    var infor = d;
     var idStr = '.' + d.id;
 
     d3.selectAll(idStr)
       .attr('stroke', 'red')
       .attr('fill', 'white')
-      .attr('font-size', 15)
+      .attr('font-size', 16)
 
+
+  d3.selectAll(idStr +'.stads')
+    .attr('fill',function(d){
+    //  console.log(d.properties)
+
+     return 'yellow'
+    })
+
+
+
+
+
+
+    d3.select('#info')
+      .style('opacity', 1)
+     .html(function(d){
+    //   console.log('in lab ')
+
+       return '<p>' +infor.Team + '</br>Total wins: ' +infor.Wins +'</br> Total losses: '+ infor.Losses + '</br>Total Appearances: '+infor.Series_appearances +'</p>'
+     })
 
 
       d3.selectAll('.bar')
@@ -351,11 +375,74 @@ return 'translate(' + coords + ')'
 
     d3.selectAll(idStr)
       .attr('stroke', 'white')
-      .attr('fill', 'red')
+      .attr('fill', function(d){
+      //  console.log('outco', d)
+      return 'blue'
+      })
       .attr('font-size', 13)
 
 
+    d3.selectAll('.stads')
+        .attr('fill',function(d){
+        //  console.log(d.properties)
+
+         return 'blue'
+        })
+
+  d3.selectAll('#info p').remove()
+
   })
+
+
+  d3.selectAll('.citLabs')
+    .on('mouseover', function(d){
+      console.log('cit start', d)
+    var origD = d;
+
+
+//    console.log('in label', infor)
+    for(i in series){
+      console.log(i)
+      if(series[i].id == d.properties.id){
+        var about = series[i]
+      }
+    }
+
+
+    d3.select('#info')
+      .style('opacity', 1)
+     .html(function(d){
+    //   console.log('in lab ')
+
+       return '<p><strong>' +about.Team + '</strong></br>Total wins: ' +about.Wins +'</br> Total losses: '+ about.Losses + '</br>Total Appearances: '+about.Series_appearances +'</p>'
+     })
+
+
+      var selector = '.'+d.properties.id;
+      d3.selectAll(selector)
+    //    .attr('fill', function(d){
+        //  if(d.id == )
+        //  console.log('lab hover', d);
+      //    return 'purple'
+      //  })
+        .attr('stroke', 'red')
+
+
+//  console.log('select bar', d3.select('.bar'+ selector ))
+      d3.select('.bar'+ selector )
+        .attr('id', function(d,i){
+          console.log('bary select', d)
+          return ''
+        })
+
+
+    })
+    .on('mouseout', function(d){
+      var selector = '.'+d.properties.id;
+      d3.selectAll(selector)
+        .attr('stroke', 'white')
+
+    })
 
   })
 

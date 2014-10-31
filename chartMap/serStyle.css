@@ -1,3 +1,19 @@
+#info{
+  position:absolute;
+  width:160px;
+  height: 110px;
+  background:grey;
+
+  margin-left: 210px;
+  margin-top:10px;
+  padding-bottom:10px;
+}
+
+#info p {
+  opacity:1;
+  color:white;
+}
+
 .bar {
   fill:pink
 }
@@ -16,7 +32,7 @@
 .x.axis {
 //  stroke:white;
 //  fill:white;
-  color:yellow
+  color:yellow;
 }
 
 
@@ -30,6 +46,10 @@
   stroke:#FFFFFF
 }
 
+*.bar:hover {
+  fill: red;
+  stroke:#FFFFFF
+}
 .bar.Giants{
   fill:#F2552C;
   stroke:#FFFDD0
@@ -132,7 +152,10 @@
   stroke:#002244
 }
 
-
+*.bar:hover {
+  fill: red;
+  stroke:#FFFFFF
+}
 .graticule{
   fill:none;
   stroke:none
@@ -149,10 +172,7 @@
   fill:none
 }
 
-.stads{
-  stroke:red;
-  color:red
-}
+
 
 .heady{
   width:100%;
