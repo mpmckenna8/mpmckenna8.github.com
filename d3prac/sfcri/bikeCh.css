@@ -1,0 +1,58 @@
+svg{
+  margin-top:0px;
+  margin-left:1%;
+  display:grid;
+  position:relative;
+}
+
+.leg{
+  background-color:grey;
+  height:auto;
+  width:20%;
+  float:right;
+  margin-top:130px;
+  position:absolute;
+  margin-left:80%;
+  z-index:2;
+  min-height:300px;
+}
+
+.allie{
+  background-color:pink;
+  height:8px;
+  width:15px;
+  display:fixed;
+  float:left;
+  margin-left:5px;
+  margin-right:4px;
+  margin-top:5px;
+}
+
+.keyer{
+  height:8px;
+  width:15px;
+  display:fixed;
+  float:left;
+  margin-left:5px;
+  margin-right:4px;
+  margin-top:5px;
+}
+
+@media (max-width: 900px) {
+  .leg {
+    font-size: 1.0em;
+    float:right;
+    position:abosolute;
+    margin-left:60%;
+    margin-top:680px;
+    width:auto;
+
+  }
+}
+
+table{
+  display:none;
+}
+:target{
+  display:table;
+}
