@@ -1,3 +1,26 @@
 .land{
   fill:grey;
 }
+
+#title {
+
+  //margin-bottom: -50px;
+}
+
+
+#map
+{
+  margin-right:auto;
+  margin-left:auto;
+  position:absolute;
+  margin-top:-60px;
+}
+
+#tops{
+  height:300px;
+}
+
+
+body{
+  background:black;
+}
