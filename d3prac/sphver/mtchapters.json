@@ -660,7 +660,7 @@
     {
       "type": "Feature",
       "properties": {
-        "location": "Puerto Rico (Bayam&amp;oacute;n)",
+        "location": "Puerto Rico (Bayam&oacute;n)",
         "title": "MaptimePR",
         "twitter": "MaptimePR",
         "organizers": [
@@ -1066,6 +1066,29 @@
         "coordinates": [
           12.4833,
           41.8935
+        ]
+      }
+    },
+   {
+      "type": "Feature",
+      "properties": {
+        "location": "Johannesburg, South Africa",
+        "title": "MaptimeJozi",
+        "twitter": "MaptimeJHB",
+        "organizers": [
+          {
+            "name": "Zukhanye Mayekiso",
+            "twitter": "Zuks_Mayekiso"
+          }
+        ],
+        "meetup": "",
+        "website": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.0456,
+          -26.2044
         ]
       }
     }
