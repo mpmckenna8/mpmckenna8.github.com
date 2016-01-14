@@ -2,18 +2,24 @@
 <html>
     <head>
         <title>Matthew McKenna Site</title>
-        <link type="text/css" rel="stylesheet" href="van.css"/>
-        <link rel="shortcut icon" href="http://mpmckenna8.github.com/bridge.ico" />
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js">
-            </script>
+        <link type="text/css" rel="stylesheet" href="jquery-ui-1.11.4/jquery-ui.css"/>
 
+        <link type="text/css" rel="stylesheet" href="van.css"/>
+
+        <link rel="shortcut icon" href="http://mpmckenna8.github.com/bridge.ico" />
+        <script src="bower_components/jquery/dist/jquery.js">
+            </script>
+        <script src="jquery-ui-1.11.4/jquery-ui.js">
+            </script>
     </head>
 
-<div class="inde page" id="all" style="display:block;">
 <body id="all">
+
+  <div class="inde page" id="all">
+
     <div class="nav">
         <ul class="tabs">
-            <a href="http://mpmckenna8.github.io/"><li id="all" class="selected">All</li></a>
+            <li id="all" class="selected">All</li>
             <li id="resu">Resumes</li>
             <li id="mymaps">Maps</li>
             <li id="iblog">Internets made</li>
@@ -21,26 +27,21 @@
         </ul>
             </div>
     <header>
-        <div id="inheader">
+      <div id="inheader">
         <div id="inname"><h1>Matthew Philip McKenna Vanity Site</h1>
         </div>
 
-
-
-</div>
-
-
-
+      </div>
 
         <div class="headright">
             <a id="inemail" href="mailto:mpmckenna8@gmail.com">mpmckenna8@gmail.com</a>
             <div id="tweeter"><a href="https://twitter.com/mpmckenna8" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @mpmckenna8</a>
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
             </div>
-        </div>
+      </div>
 
+    </header>
 
-        </header>
 <div class="imagi page">
         <img src="http://i.imgur.com/1VGDwAN.jpg?1" height="250" width="250">
 </div>
@@ -48,7 +49,7 @@
     <div class="resume page" id="resu" style="display:block;">
         <h1>My digital resum&eacute;s:</h1>
             <ul>
-                <a href="http://mpmckenna8.github.io/resume"><div><li>Resum&eacute; in HTML</li></div></a>
+                <a href="http://mpmckenna8.github.io/frontend-nanodegree-resume/index.html"><div><li>Resum&eacute; in HTML</li></div></a>
                 <a href="http://www.linkedin.com/pub/matthew-mckenna/a/b04/826"><div><li>LinkedIn Profile</li></div></a>
             </ul>
     </div>
@@ -104,7 +105,6 @@
                 <h2>Leaflet.js Practice Page</h2>
                 <h3>Been trying to learn how to use Leaflet lately because it seems like the most reasonable thing for making custom webmaps if you want to not use Googley stuff.</h3>
                     </div>
-
         </a>
 
             <a href="http://mpmckenna8.cartodb.com/viz/221555e0-0508-11e3-8829-85393ec96206/embed_map?title=true&description=true&search=true&shareable=true&cartodb_logo=true&layer_selector=true&legends=true&scrollwheel=true&sublayer_options=1&sql=&zoom=1&center_lat=18.979025953255267&center_lon=78.046875">
@@ -210,8 +210,9 @@
         src="https://www.gittip.com/mpmckenna8/widget.html"
         width="48pt" height="22pt"></iframe> </div>
         </div>
+    </div>
+
     <script type="text/javascript" src="indescript.js"></script>
 </body>
-</div>
 
 </html>

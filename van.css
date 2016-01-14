@@ -1,10 +1,8 @@
 
 
-
-
 .shaddow, .nav, #inheader, #footer
    {
-       margin:30px 50px;
+    margin:30px 20px, 10px, 10px;
     background-color:#ffffff;
     border:1px solid black;
     opacity:0.7;
@@ -13,6 +11,32 @@
     border: 2px solid #731313;
    }
 
+
+.nav li {
+       /*Add your CSS here!*/
+   	display: inline-block;
+   padding: 5px;
+   border: 2px solid #731313;
+   	font-family: Futura, Tahoma, sans-serif;
+   border-radius: 5px 5px;
+   width: auto;
+   margin-top: 30px;
+   margin:auto;
+   height:auto;
+
+  }
+
+div .nav {
+       position: fixed;
+       z-index:1;
+       padding-left:10%;
+     //  padding-left:120;
+       padding-right:10%;
+       width: 75%;
+       margin:2px
+   }
+
+
 ul li {
     cursor:pointer;
 }
@@ -20,13 +44,12 @@ ul li {
 ul.tabs li.selected {
     background-color:black;
     color: white;
-    
+
 }
 
 .resume li {
     margin-left:10px;
 }
-
 
 body{
     background:url("http://i.imgur.com/lQeWsTW.jpg?1");
@@ -37,11 +60,12 @@ body{
         color:black;
         font-family:Helvetica;
     }
-    p{
+p{
         font-size:24px;
         color:black;
     }
-   div input{
+
+div input{
        border:1;
        padding:12px;
        font-size:18px;
@@ -49,38 +73,13 @@ body{
    div input[type="submit"]{
        background:limegreen;
        color:black;
-       
+
    }
 
-div .nav {
-    position: fixed;
-    
-    z-index:1;
-    
-    left:25%;
-    padding-left:120;
-    padding-right:30px;
-    
-}
-
-.nav li {
-    /*Add your CSS here!*/
-	display: inline;
-    padding: 5px;
-	border: 2px solid #731313;
-	font-family: Futura, Tahoma, sans-serif;
-	border-radius: 5px 5px;
-	
-
-    
-}
-
-
-   
 .inde div {
     border-radius: 5px;
     border: 2px solid #731313;
-    
+
 }
 
 a {
@@ -120,10 +119,9 @@ text-align:center;
 }
 
 
-
 div.resume li{
     text-size:77px;
-    
+
 }
 .headright #inemail{
     padding-left:5px;
@@ -183,4 +181,35 @@ padding: 10px
 #footer p{
 font-size:18px;
 font-weight:600;
+}
+
+div .headright{
+
+}
+
+.bleep, option {
+  font-size: 20px;
+  font-weight: 30;
+  height: 20%;
+  padding: 30px;
+  margin:20px;
+  width:75%;
+
+}
+
+select, option {
+  -webkit-appearance : none; /* To gain control over the appearance on WebKit */
+  -moz-appearance : none; /* To gain control over the appearance on Gecko */
+
+  /* To gain control over the appearance on Presto (Opera) and Trident (IE)
+     Note that it also work on Gecko and has partial effects on WebKit */
+  background : none;
+}
+
+
+@media (max-width: 630px){
+
+  .nav li{
+    text:"blop"
+  }
 }
