@@ -1,5 +1,10 @@
 
 
+div#inheader{
+  display:flex;
+}
+
+
 .shaddow, .nav, #inheader, #footer
    {
     margin:30px 20px, 10px, 10px;
@@ -78,7 +83,7 @@ div input{
 
 .inde div {
     border-radius: 5px;
-    border: 2px solid #731313;
+  //  border: 2px solid #731313;
 
 }
 
@@ -129,17 +134,17 @@ div.resume li{
 
 .headright{
     float:right;
-    position:relative;
+    position:inline-block;
     z-level:2;
     display:inline;
     margin-right: 60px;
-    margin-top:-105px;
+    margin-top:5px;
 
 }
 
  header div#inname{
     padding-left:20px;
-    display:none:
+    position: inline-block;
 }
 
 #tweeter{
@@ -188,9 +193,9 @@ div .headright{
 }
 
 .bleep, option {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 30;
-  height: 15%;
+  height: 20%;
   padding: 30px;
   margin:20px;
   width:75%;
@@ -209,7 +214,15 @@ select, option {
 
 @media (max-width: 630px){
 
+
+   .headright{
+     margin-top: 50px;
+
+   }
   .nav li{
     text:"blop"
   }
+
+
+
 }
