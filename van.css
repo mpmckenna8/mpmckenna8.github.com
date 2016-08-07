@@ -5,6 +5,17 @@ div#inheader{
 }
 
 
+div .nav {
+       position: fixed;
+       z-index:1;
+  //     padding-left:10%;
+     //  padding-left:120;
+    //   padding-right:10%;
+       width: 100%;
+      // margin:2px
+   }
+
+
 .shaddow, .nav, #inheader, #footer
    {
     margin:30px 20px, 10px, 10px;
@@ -31,15 +42,7 @@ div#inheader{
 
   }
 
-div .nav {
-       position: fixed;
-       z-index:1;
-       padding-left:10%;
-     //  padding-left:120;
-       padding-right:10%;
-       width: 75%;
-       margin:2px
-   }
+
 
 
 ul li {
@@ -158,7 +161,7 @@ padding-top:10px;
 padding-bottom:10px;
 width:200px;
 text-align:left;
-padding-left:40px;
+//padding-left:40px;
 text-shadow: gold;
 opacity:1;
 font-weight:700;
@@ -180,7 +183,7 @@ a li:hover {
 }
 
 .content div {
-padding: 10px
+//padding: 10px
 }
 
 #footer p{
