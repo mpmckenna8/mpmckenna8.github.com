@@ -4,6 +4,9 @@
   font-family: 'Roboto', sans-serif;
 }
 
+.projImage {
+  width-max:75%;
+}
 
 .clearfix {
   overflow: auto;

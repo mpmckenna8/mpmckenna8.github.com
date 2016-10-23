@@ -29,7 +29,6 @@ var work = {jobs:[],
     worknow.years = '3.5 years';
     worknow.description = "Oversee field operations for the bicycle valet service while overseeing volunteers and coordinating operations at a wide variety of sites.";
 
-    console.table(worknow)
 
     work.jobs.push(worknow);
     var wornow = {};
@@ -52,25 +51,29 @@ var work = {jobs:[],
 
     cof.addtowork();
 
-    console.log(cof)
-  },
-  job: new job(),
+    var pwc = new job("Intern", "PricewaterhouseCoopers LLP", "Sydney, Austrailia", "6 months", "Performed work at the consultant level for various teams including Corporate Social Responsibility auditing and writing material for publication.")
+
+//    console.log(pwc)
+
+    pwc.addtowork();
+
+  //  console.log(cof)
+
+  }
 
 
 }
 work.init();
 
 
-console.log('now work is', work)
 
-function job(){
-  this.position;
-  this.employer;
-  this.location;
-  this.years;
-  this.description;
+function job(position, employer, location, years, description){
+  this.position = position;
+  this.employer = employer;
+  this.location = location;
+  this.years = years;
+  this.description = description;
   this.addtowork = function(){
-    console.log(this);
     work.jobs.push(this)
   }
 }
@@ -79,24 +82,26 @@ function job(){
 
 
 var education = {"schools":[],
-            "onlineCourses":[{
-              "title":"JavaScript Basics",
-              "school":"Udacity",
-              "url":"https://www.udacity.com/course/ud804",
-              "dates":"April 2015"},
-              {
-                "title":"Data Visualization and D3.js",
-                "school":"Udacity",
-                "dates":"Jan - Feb 2015",
-                "url":"https://www.udacity.com/course/data-visualization-and-d3js--ud507"
-              },
-              {
-                "title":"How to use Git and GitHub",
-                "school":"Udacity",
-                "dates":"Jan 2015",
-                "url":"https://www.udacity.com/course/how-to-use-git-and-github--ud775"
-              }
-            ]};
+                  "onlineCourses":[{
+                    "title":"JavaScript Basics",
+                    "school":"Udacity",
+                    "url":"https://www.udacity.com/course/ud804",
+                    "dates":"April 2015"},
+                    {
+                      "title":"Data Visualization and D3.js",
+                      "school":"Udacity",
+                      "dates":"Jan - Feb 2015",
+                      "url":"https://www.udacity.com/course/data-visualization-and-d3js--ud507"
+                    },
+                    {
+                      "title":"How to use Git and GitHub",
+                      "school":"Udacity",
+                      "dates":"Jan 2015",
+                      "url":"https://www.udacity.com/course/how-to-use-git-and-github--ud775"
+                    }
+                  ]};
+
+
 
 education.schools.push({"location":"San Francisco, CA"})
 education.schools[0]["name"] = 'City College of San Francisco';
@@ -105,6 +110,22 @@ education.schools[0]["degree"] = "GIS (Geographic Information Systems) Certifica
 education.schools.push({"name":"University of Wisconsin",
 "location":"Madison, WI", "degree":"BA", "major":"International Studies", "years": "2004-2008"})
 //console.log(JSON.stringify(edu));
+
+
+var highschool = new school("American School Foundation of Mexico DF", "2002-2004", "High School Diploma", "Learned to speak and read spanish fairly well and partipated in a range of varsity sports as I attended high school in Mexico City for my junior and senior years of high school.", "Mexico DF, Mexico")
+
+function school(name, years, degree, major, location ){
+
+    this.name = name,
+    this.years = years,
+    this.degree = degree,
+    this.major = major,
+    this.location = location
+
+}
+
+
+education.schools.push(highschool)
 
 education.schools[0]["major"]  = "Geographic Information Systems"
 
@@ -118,25 +139,50 @@ education.onlineCourses.push(introcs);
 
 education.onlineCourses.push(jsdes);
 
-var projects = {projects:[{
-  "title":"California State Congresses Maps",
-  "dates":"2015",
-  "description":"A page where you can check out the districts for the upper and lower houses of the California State Congress.",
-  "url":"http://secure-sands-4200.herokuapp.com/#/map",
-  "images":[{
-    "url":"images/CAmap.jpg"}
-    ]
-  },
-  {
-    "title":"Maptimes Spherical Veronoi Map",
-    "dates":"2015",
-    "description":"Pretty much copied a Joson Davies spherical veronoi inserting Maptimes for the points.",
-    "url":"http://mpmckenna8.github.io/d3prac/sphver/index.html",
-    "images":[
-
-    ]
-  }],
+var projects = {projects:[],
   init:function(){
+// showing the constructor function for projects if i want to use it
+// function Project(title, dates, description, url, images){
+
+
+    var myBlocks = new Project("My bl.ocks", "2010-Present", "A bunch of simple examples of developing the web.  Be careful to check weather all of them are actually by me, although I try and attribute where appropriate some gists I fork automatically get posted here.", "http://bl.ocks.org/mpmckenna8", [])
+
+    projects.projects.push(myBlocks)
+
+    var ccsfMap = new Project("CCSF Campuses/buildings Map", "2015-2016", "A map to show and help people find out where all the City college of San Francisco Campuses and buildings are.", "http://mpmckenna8.github.io/ccsfmapapp/site/", [] );
+
+  //   ccsfMap.description = "A map to show and help people find out where all the City college of San Francisco Campuses and buildings are."
+    console.log(ccsfMap)
+    projects.projects.push(ccsfMap);
+
+
+    var caCongressMap = {
+    "title":"California State Congresses Maps",
+    "dates":"2015",
+    "description":"A page where you can check out the districts for the upper and lower houses of the California State Congress.",
+    "url":"http://secure-sands-4200.herokuapp.com/#/map",
+    "images":[{
+      "url":"images/CAmap.jpg"}
+      ]
+    }
+
+    projects.projects.push(caCongressMap);
+
+
+    var maptimesSphVe =   {
+        "title":"Maptimes Spherical Veronoi Map",
+        "dates":"2015",
+        "description":"Pretty much copied a Joson Davies spherical veronoi inserting Maptimes for the points.",
+        "url":"http://mpmckenna8.github.io/d3prac/sphver/index.html",
+        "images":[
+
+        ]
+      };
+
+    projects.projects.push(maptimesSphVe)
+
+
+
     var baseball = new Project
 
     baseball.title = "MLB World Series Column Chart";
@@ -150,17 +196,33 @@ var projects = {projects:[{
     projects.projects.push(baseball);
 
 
+    var badgers = new Project
+
+      badgers.title = "Badgers Twitter Map";
+      badgers.dates = "March 2015";
+      badgers.description = "A map that utilizes the Twitter Streaming API and Mapbox Tiles to show where people are tweeting about the badgers.";
+      badgers.url = "https://polar-ridge-9307.herokuapp.com/";
+      badgers.images = [];
+
+
+
+    var bikeAccidentsMap = {
+      title: "Bike Accidents on Polk St",
+      dates: "April 2014",
+      description: "Simple first project using Mapbox to make a simple webmap on their platform.",
+      url: "http://a.tiles.mapbox.com/v3/mpmckenna8.map-67tcuy92/page.html#16/37.7892/-122.4200",
+      images: []
+    };
+
+    projects.projects.push(bikeAccidentsMap)
+
+    projects.projects.push(badgers);
+
+
   }}
 
-  var badgers = new Project
 
-  badgers.title = "Badgers Twitter Map";
-  badgers.dates = "March 2015";
-  badgers.description = "A map that utilizes the Twitter Streaming API and Mapbox Tiles to show where people are tweeting about the badgers.";
-  badgers.url = "https://polar-ridge-9307.herokuapp.com/";
-  badgers.images = [];
 
-  projects.projects.push(badgers);
 
 projects.init();
 
@@ -214,8 +276,9 @@ var view = {
          for (image in projectos[i].images){
            var formimage = HTMLprojectImage.replace("%data%", projectos[i].images[image].url);
            $(".project-entry:last").append(formimage)
-         }
-       }
+          }
+
+        }
 
 
     }
@@ -245,7 +308,7 @@ var view = {
 
       var formskills = [];
       for(i in bio.skills){
-        console.log(i)
+  //      console.log(i)
         formskills.push(HTMLskills.replace("%data%", bio.skills[i]))
 
       }
@@ -261,7 +324,7 @@ var view = {
         $("#skills").append(formskills)
       }
 
-      console.log(formskills)
+//      console.log(formskills)
 
       var formpic = HTMLbioPic.replace("%data%", bio.pic);
 
@@ -304,13 +367,12 @@ var view = {
     onlineClass:function(){
       var classes = octo.getcourses();
 
-      console.log(classes);
       var ediv = $("#education");
 
       ediv.append(HTMLonlineClasses);
 
       for (cla in classes){
-        console.log(classes[cla]);
+    //    console.log(classes[cla]);
 
         ediv.append(HTMLschoolStart);
 
@@ -319,7 +381,6 @@ var view = {
                   + HTMLonlineSchool.replace("%data%", classes[cla].school)
                   + HTMLonlineDates.replace("%data%", classes[cla].dates)
                   + HTMLonlineURL.replace("%data%", classes[cla].url);
-                  console.log(entry);
 
                  $(".education-entry:last")
                 .append(entry);
@@ -332,13 +393,8 @@ var view = {
 view.init();
 
 
-// all the below are
-
-//$("#workExperience").append(formWorkLen).append(formWorkEm).append(formworkTit).append(formworkDate).append(formWorkPlace).append(formWorkDesc)
-
-
-
 function displayWork(work,i){
+
   console.log('gonna add some jobs', i)
   soap =   $("#workExperience").append(HTMLworkStart)
   formWorkEm = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
@@ -346,7 +402,7 @@ function displayWork(work,i){
 
 
   $(".work-entry:last").append(HTMLworkEmployer.replace("%data%", work.jobs[i].employer) + HTMLworkTitle.replace("%data%", work.jobs[i].position)).append(HTMLworkDates.replace("%data%", work.jobs[i].years))
-  .append(HTMLworkLocation.replace("%data%", worknow.location)).append(HTMLworkDescription.replace("%data%", work.jobs[i].description))
+  .append(HTMLworkLocation.replace("%data%", work.jobs[i].location)).append(HTMLworkDescription.replace("%data%", work.jobs[i].description))
   $("#workExperience").append(soap)
 
 }
@@ -359,17 +415,22 @@ $(document).click(function(loc){
 
 $("#main").append(internationalizeButton);
 
+
 function inName(name){
   var spliced = bio.name.split(" ");
   console.log(spliced[0] + " " + spliced[1].toUpperCase())
   return spliced[0] + " " + spliced[1].toUpperCase()
 }
 
-function Project(){
-  this.title;
-  this.dates;
-  this.url;
-  this.images = [];
+
+
+function Project(title, dates, description, url, images){
+
+  this.title = title;
+  this.dates = dates;
+  this.description = description;
+  this.url = url;
+  this.images = images;
 
 }
 
@@ -377,8 +438,10 @@ $("#mapDiv").append(googleMap)
 
 
 function onlineCourse(title, school, dates, url){
+
   this.title = title;
   this.school = school;
   this.dates = dates;
   this.url = url;
+
 }

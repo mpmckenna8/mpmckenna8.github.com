@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <style>
+    body { margin:0;position:fixed;top:0;right:0;bottom:0;left:0; }
+
+
+  </style>
+</head>
+
+<body>
+
+  <script>
+
+  var infobox = d3.select("body").append("div")
+    .attr('class', 'infobox')
+
+
+
+
+
+    var width = 500;
+    var height = 500;
+
+
+    var margin = {
+      top: 25,
+      left:25
+    }
+
+    var svg = d3.select("body").append("svg")
+      .attr("width", width)
+      .attr("height", height)
+      .append('g')
+      .attr('transform', 'translate(25,25)')
+
+    var scaleWidth = (width - 50)
+
+    var domainMax = 1;
+
+    var scale = d3.scaleLinear()
+    								.domain([-domainMax,domainMax])
+    								.range([0, scaleWidth ])
+
+    var yscale = d3.scaleLinear()
+    								.domain([domainMax ,domainMax])
+    								.range([scaleWidth, 0 ])
+
+    var horAxis = d3.axisBottom(yscale);
+
+    var posxtrans =  (width-50)/2.0 ;
+  //  console.log(posxtrans)
+
+
+    svg.append("g")
+    	.call(horAxis)
+    	.attr("class", "horizonaxis")
+    	.attr("transform", "translate(" + 0 + "," + posxtrans + ")"  )
+
+
+
+   var vertAxis = d3.axisLeft(scale);
+
+
+   svg.append("g")
+    	.call(vertAxis)
+    	.attr("class", "vertaxis")
+    	.attr("transform", "translate(" + posxtrans+ "," + 0 + ")"  )
+
+
+
+
+   var angles = [ { rad: 0, label: "0"} ,
+      { rad: Math.PI/6.0, label: "pi/6" } ,
+       {rad: (Math.PI/4.0), label: "pi/4"} ,
+       {rad: (Math.PI/3.0), label:"pi/3" },
+       { rad: (Math.PI/2.0), label:"pi/2" },
+        { rad: (4*Math.PI)/6, label:"2pi/3"},
+        { rad: (3*Math.PI)/4,  label:"3pi/4"},
+        { rad: (5*Math.PI)/6, label:"5pi/6"},
+        { rad: Math.PI, label:"pi" },
+        { rad: (7*Math.PI)/6, label:"7pi/6"},
+        { rad: (5*Math.PI)/4, label:"5pi/4"},
+        { rad: (8*Math.PI)/6, label:"4pi/3"},
+        { rad: (9*Math.PI)/6, label:"3pi/2"},
+        { rad: (7*Math.PI)/4, label:"7pi/4"},
+        { rad: (10*Math.PI)/6, label:"5pi/3"},
+        { rad: (11*Math.PI)/6, label:"11pi/6"},
+        { rad: (12*Math.PI)/6, label:"2pi"},
+
+      ];
+
+
+
+	var anglepoints = [];
+
+
+
+    for ( i of anglepoints){
+      console.log(i)
+      anglepoints.push(makeAngles(i.rad))
+    }
+
+
+
+    var dotsG = svg.append('g').attr('class', 'dotsGroup')
+    				//	.attr('transform', 'translate(' + 0 + "," + 0 + ')');
+
+
+    yscale = d3.scaleLinear()
+  								.domain([domainMax,-domainMax])
+  								.range([0, scaleWidth ])
+
+
+
+    dotsG.selectAll('.dots')
+    	.data(angles)
+    	.enter()
+    	.append('circle')
+    	.attr('class', 'dots')
+    	.attr('r', 1)
+    	.attr('cx', function(d,i){
+        return scale(makeAngles(d.rad)[0])
+      })
+    	.attr('cy', function(d,i){
+      //  console.log(d, i)
+      //  console.log(scale(makeAngles(d.rad)[0]))
+      //  console.log(scale(makeAngles(d.rad)[1]))
+
+        return yscale(makeAngles(d.rad)[1])
+      })
+      .attr('radi', function(d, i){
+        return d.rad
+      })
+      .attr('id', function(d,i){
+//  console.log(this);
+        return 'dot' + i
+      })
+
+      dotsG.selectAll('.majorAngles')
+      	.data(angles)
+      	.enter()
+      	.append('text')
+      	.attr('class', 'majorAngles')
+        .attr('transform', function(d,i){
+            var xtran = scale(makeAngles(d.rad)[0])
+            var ytran = yscale(makeAngles(d.rad)[1])
+            return  "translate("+ xtran +"," + ytran +")"
+      })
+      .text(function(d){
+        console.log('addin text to', d)
+        return d.label
+      })
+
+
+
+    function makeAngles(ang){
+      var xang = Math.cos(ang);
+      var yang = Math.sin(ang);
+    //  console.log('xangle is', xang)
+      // because 2 NaN s are not equal for whatever reason
+      if(xang !== xang ){
+        console.log('x is not a number', xang)
+        xang = 0;
+      }
+
+      if( (yang !== yang)){
+
+        yang = 0;
+
+      }
+
+
+      return [xang, yang];
+
+    }
+
+
+// going to try to graph sin theta
+
+
+var sinlineg = svg.append('g').attr('class', 'sinlinegroup')
+
+
+
+
+
+var line = d3.line()
+            .x(function(d){
+        //      console.log('trying to make x with', d)
+              return scale(d.xy[0])
+            })
+            .y(function(d){
+              return yscale(d.xy[1])
+            })
+      //      .curve(d3.curveCatmullRom.alpha(0.5));        //    .curve(d3.curveBundle.beta(0.5));
+
+
+
+
+
+function findcoor(theta, radius){
+
+  var xpo = radius * Math.cos(theta);
+  var ypo = radius * Math.sin(theta);
+
+  if( xpo !== xpo){
+    xpo = 0;
+  }
+  if ( ypo !== ypo ){
+    ypo = 0;
+  }
+
+//  console.log(xpo)
+
+  return [xpo, ypo]
+
+}
+
+
+
+
+
+
+startGraph(0);
+
+
+
+function startGraph(index){
+  console.log(index)
+  if(index <  angles.length-1){
+    equationToGraph(index)
+  }
+
+}
+
+
+function equationToGraph (index) {
+
+  var startAngle = angles[index];
+  var infotext = "Now graphing " + startAngle.label + " to " + angles[index + 1].label
+  console.log('start at andl' + startAngle.rad)
+  infobox
+    .text(infotext)
+
+
+  console.log(('last angle', angles[angles.length-1].label))
+
+
+  console.log('end at angle ' + angles[index+1].rad)
+
+
+  var anglegap = angles[index+1].rad - startAngle.rad ;
+
+  var lastang = (startAngle.rad + (( anglegap / 100 ) * 100))
+  console.log('shoule also = ' + lastang  )
+
+
+  var linePoints = [];
+
+
+  for(var p = 0; p <= 100; p++){
+
+      var theta = startAngle.rad + (( anglegap / 100 ) * p );
+      console.log(theta)
+
+      var radius = Math.cos(theta * 4 );
+
+        linePoints.push({theta: theta, radius: radius, xy:findcoor(theta, radius)})
+
+      }
+
+
+  var liner = sinlineg
+    .append('path')
+    .attr('d', line(linePoints))
+    .attr('width', 3)
+    .attr('fill',  'none')//'orange')
+    .attr('class', 'graphline'+ index)
+
+
+    var totalLength = liner.node().getTotalLength();
+
+
+    liner.attr("stroke-dasharray", totalLength + " " + totalLength)
+        .attr("stroke-dashoffset", totalLength)
+        .transition()
+        .duration(6000)
+        .attr("stroke-dashoffset", 0)
+  //      .ease("linear")
+        .attr('id', function(d,i){
+          console.log('hope i m in the animating', d);
+          return 'hooey' + i
+        })
+        .attr('stroke', 'purple')
+        .on('end', function(d){
+          console.log('why no annimating')
+
+          startGraph(index+1)
+
+        })
+
+}
+
+
+  </script>
+</body>
