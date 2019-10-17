@@ -9,7 +9,8 @@ var bio = {
   welcome:aboutme,
   skills:["JavaScript", "HTML", "GIS", "Networks", "Cartography"],
   contacts:{
-    twitter:"mpmckenna8",
+
+    twitter:"@mpmckenna8",
     mobile:"Please contact by e-mail to obtain mobile #",
     email:"mpmckenna8@me.com",
     github:"mpmckenna8",
@@ -18,11 +19,15 @@ var bio = {
 }
 
 
-
 // work data basically has a jobs array
-var work = {jobs:[],
+var work = {
+  jobs:[],
   init:function(){
-    worknow = {};
+
+    let contractor = new job("IT Contractor", "Independent", "San Francisco", "5 Years",
+    "Perform various tasks for clients including web developement and GIS analysis.")
+    contractor.addtowork();
+    worknow = new job();
     worknow.position = "Volunteer Supervisor";
     worknow.employer = "San Francisco Bicycle Coalition";
     worknow.location = "San Francisco";
@@ -31,7 +36,7 @@ var work = {jobs:[],
 
 
     work.jobs.push(worknow);
-    var wornow = {};
+    var wornow = new job();
     wornow.position = "Barista";
     wornow.employer = "It's a Grind";
     wornow.location = "San Francisco";
@@ -46,37 +51,21 @@ var work = {jobs:[],
     cof.employer = "Conservatory of Flowers";
     cof.location = "San Francisco";
     cof.years = "4 years";
-    cof.description = "Am a Jungle Guide for 2nd to 5th grade field tripts to the " +
+    cof.description = "Volunteered as a Jungle Guide (docent) for 2nd to 5th grade field tripts to the " +
     "Conservatory of Flowers, which is a historical green house in Golden Gate Park.";
 
     cof.addtowork();
 
     var pwc = new job("Intern", "PricewaterhouseCoopers LLP", "Sydney, Austrailia", "6 months", "Performed work at the consultant level for various teams including Corporate Social Responsibility auditing and writing material for publication.")
-
 //    console.log(pwc)
-
     pwc.addtowork();
-
   //  console.log(cof)
-
   }
-
-
 }
+
+
 work.init();
 
-
-
-function job(position, employer, location, years, description){
-  this.position = position;
-  this.employer = employer;
-  this.location = location;
-  this.years = years;
-  this.description = description;
-  this.addtowork = function(){
-    work.jobs.push(this)
-  }
-}
 
 
 
@@ -114,16 +103,6 @@ education.schools.push({"name":"University of Wisconsin",
 
 var highschool = new school("American School Foundation of Mexico DF", "2002-2004", "High School Diploma", "Learned to speak and read spanish fairly well and partipated in a range of varsity sports as I attended high school in Mexico City for my junior and senior years of high school.", "Mexico DF, Mexico")
 
-function school(name, years, degree, major, location ){
-
-    this.name = name,
-    this.years = years,
-    this.degree = degree,
-    this.major = major,
-    this.location = location
-
-}
-
 
 education.schools.push(highschool)
 
@@ -141,15 +120,19 @@ education.onlineCourses.push(jsdes);
 
 var projects = {projects:[],
   init:function(){
+
 // showing the constructor function for projects if i want to use it
 // function Project(title, dates, description, url, images){
 
+  var myBlocks = new Project("My bl.ocks",
+  "2010-Present",
+  "A bunch of simple examples of developing the web.  Be careful to check weather all of them are actually by me, although I try and attribute where appropriate some gists I fork automatically get posted here.",
+  "http://bl.ocks.org/mpmckenna8", [])
 
-    var myBlocks = new Project("My bl.ocks", "2010-Present", "A bunch of simple examples of developing the web.  Be careful to check weather all of them are actually by me, although I try and attribute where appropriate some gists I fork automatically get posted here.", "http://bl.ocks.org/mpmckenna8", [])
+  projects.projects.push(myBlocks)
 
-    projects.projects.push(myBlocks)
-
-    var ccsfMap = new Project("CCSF Campuses/buildings Map", "2015-2016", "A map to show and help people find out where all the City college of San Francisco Campuses and buildings are.", "http://mpmckenna8.github.io/ccsfmapapp/site/", [] );
+  var ccsfMap = new Project("CCSF Campuses/buildings Map", "2015-2016", "A map to show and help people find out where all the City college of San Francisco Campuses and buildings are.",
+    "http://mpmckenna8.github.io/ccsfmapapp/site/", [] );
 
   //   ccsfMap.description = "A map to show and help people find out where all the City college of San Francisco Campuses and buildings are."
     console.log(ccsfMap)
@@ -191,7 +174,6 @@ var projects = {projects:[],
     baseball.url = "http://mpmckenna8.github.io/chartMap/index.html";
     baseball.images = [];
 
-    console.log(baseball)
 
     projects.projects.push(baseball);
 
@@ -228,10 +210,9 @@ projects.init();
 
 
 // data ended not to do a octo
-
 var octo = {
   getbio: function(){
-    return bio
+    return bio;
   },
   getproj: function(){
     return projects;
@@ -245,71 +226,59 @@ var octo = {
 
 }
 
-// now doing the view stuff, i guess I'll try and put all the stuff that interacts with the view in heresies
-
+// now doing the view stuff, i guess I'll try and put all the stuff that interacts with the view in here
 var view = {
   init:function(){
     this.work.init();
     view.bio.init();
     view.projects.init();
     view.education.init();
-
   },
   projects:{init:function(){
     var projectos = octo.getproj().projects;
-
     console.log(projectos)
 
     var projdiv = $("#projects")
 
     for(i in projectos){
 
-
       projdiv.append(HTMLprojectStart);
 
-
-      $(".project-entry:last").append(HTMLprojectTitle.replace("%data%", projectos[i].title).replace("#", projectos[i].url)
-      + HTMLprojectDates.replace("%data%", projectos[i].dates)
-       + HTMLprojectDescription.replace("%data%", projectos[i].description) )
+      $(".project-entry:last").append(HTMLprojectTitle.replace(/%data%/g, projectos[i].title).replace("#", projectos[i].url)
+      + HTMLprojectDates.replace(/%data%/g, projectos[i].dates)
+       + HTMLprojectDescription.replace(/%data%/g, projectos[i].description) )
 
        if(projectos[i].images.length > 0){
          for (image in projectos[i].images){
-           var formimage = HTMLprojectImage.replace("%data%", projectos[i].images[image].url);
+           var formimage = HTMLprojectImage.replace(/%data%/g, projectos[i].images[image].url);
            $(".project-entry:last").append(formimage)
           }
-
         }
-
-
     }
   }},
   bio:{
     init:function(){
-
       // make the bio show up
-
-      var formatName = HTMLheaderName.replace("%data%", bio.name);
-      console.log(formatName);
-
-
-      var formatRole = HTMLheaderRole.replace("%data%", bio.role);
+      var formatName = HTMLheaderName.replace(/%data%/g, bio.name);
+  //    console.log(formatName);
+      var formatRole = HTMLheaderRole.replace(/%data%/g, bio.role);
 
       $("#header").prepend(formatRole);
       $("#header").prepend([formatName]);
 
-      //var formatCon = HTMLcontactGeneric.replace("%data%", bio.contacts.mobile).replace("%contact%", "Best to contact by:");
+      //var formatCon = HTMLcontactGeneric.replace(/%data%/g, bio.contacts.mobile).replace("%contact%", "Best to contact by:");
 
-      var forMob = HTMLmobile.replace("%data%", bio.contacts.mobile);
+      var forMob = HTMLmobile.replace(/%data%/g, bio.contacts.mobile);
 
-      var formatemail = HTMLemail.replace("%data%", bio.contacts.email).replace("%data%", bio.contacts.email);
+      var formatemail = HTMLemail.replace(/%data%/g, bio.contacts.email.toString())
 
-      var formtwit = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+      var formtwit = HTMLtwitter.replace(/%data%/g, bio.contacts.twitter);
 
 
       var formskills = [];
       for(i in bio.skills){
   //      console.log(i)
-        formskills.push(HTMLskills.replace("%data%", bio.skills[i]))
+        formskills.push(HTMLskills.replace(/%data%/g, bio.skills[i]))
 
       }
 
@@ -326,9 +295,9 @@ var view = {
 
 //      console.log(formskills)
 
-      var formpic = HTMLbioPic.replace("%data%", bio.pic);
+      var formpic = HTMLbioPic.replace(/%data%/g, bio.pic);
 
-      var formwel = HTMLwelcomeMsg.replace("%data%", bio.welcome)
+      var formwel = HTMLwelcomeMsg.replace(/%data%/g, bio.welcome)
 
       $("#header").append(formpic).append(formwel)
 
@@ -351,11 +320,11 @@ var view = {
         edudiv.append(HTMLschoolStart);
 
         var hoo = schools[ble];
-        var name = HTMLschoolName.replace("%data%", hoo.name);
-        var degree = HTMLschoolDegree.replace("%data%", hoo.degree);
-        var dates = HTMLschoolDates.replace("%data%", hoo.years);
-        var loca = HTMLschoolLocation.replace("%data%", hoo.location );
-        var major = HTMLschoolMajor.replace("%data%", hoo.major);
+        var name = HTMLschoolName.replace(/%data%/g, hoo.name);
+        var degree = HTMLschoolDegree.replace(/%data%/g, hoo.degree);
+        var dates = HTMLschoolDates.replace(/%data%/g, hoo.years);
+        var loca = HTMLschoolLocation.replace(/%data%/g, hoo.location );
+        var major = HTMLschoolMajor.replace(/%data%/g, hoo.major);
         var allofit = name + degree + dates + loca + major;
         $(".education-entry:last").append(allofit);
       }
@@ -372,15 +341,13 @@ var view = {
       ediv.append(HTMLonlineClasses);
 
       for (cla in classes){
-    //    console.log(classes[cla]);
-
         ediv.append(HTMLschoolStart);
 
         // We have title, school, dates and url in each online class data thing
-        var entry = HTMLonlineTitle.replace("%data%", classes[cla].title).replace("#", classes[cla].url)
-                  + HTMLonlineSchool.replace("%data%", classes[cla].school)
-                  + HTMLonlineDates.replace("%data%", classes[cla].dates)
-                  + HTMLonlineURL.replace("%data%", classes[cla].url);
+        var entry = HTMLonlineTitle.replace(/%data%/g, classes[cla].title).replace("#", classes[cla].url)
+                  + HTMLonlineSchool.replace(/%data%/g, classes[cla].school)
+                  + HTMLonlineDates.replace(/%data%/g, classes[cla].dates)
+                  + HTMLonlineURL.replace(/%data%/g, classes[cla].url);
 
                  $(".education-entry:last")
                 .append(entry);
@@ -395,14 +362,21 @@ view.init();
 
 function displayWork(work,i){
 
-  console.log('gonna add some jobs', i)
-  soap =   $("#workExperience").append(HTMLworkStart)
-  formWorkEm = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
-  formworkDate = HTMLworkDates.replace("%data%", work.jobs[i].years);
+  let thisHTMLworkStart = HTMLworkStart.replace(/%data%/g, work.jobs[i].employer)
+
+  soap = $("#workExperience").append(thisHTMLworkStart)
+
+  formWorkEm = HTMLworkEmployer.replace(/%data%/g, work.jobs[i].employer);
+  formworkDate = HTMLworkDates.replace(/%data%/g, work.jobs[i].years);
 
 
-  $(".work-entry:last").append(HTMLworkEmployer.replace("%data%", work.jobs[i].employer) + HTMLworkTitle.replace("%data%", work.jobs[i].position)).append(HTMLworkDates.replace("%data%", work.jobs[i].years))
-  .append(HTMLworkLocation.replace("%data%", work.jobs[i].location)).append(HTMLworkDescription.replace("%data%", work.jobs[i].description))
+  $(".work-entry:last").append(HTMLworkEmployer.replace(/%data%/g, work.jobs[i].employer) + HTMLworkTitle.replace(/%data%/g, work.jobs[i].position))
+  .append(HTMLworkDates.replace(/%data%/g, work.jobs[i].years))
+  .append(HTMLworkLocation.replace(/%data%/g,
+     work.jobs[i].location))
+  .append(HTMLworkDescription.replace(/%data%/g,
+     work.jobs[i].description))
+
   $("#workExperience").append(soap)
 
 }
@@ -424,24 +398,6 @@ function inName(name){
 
 
 
-function Project(title, dates, description, url, images){
 
-  this.title = title;
-  this.dates = dates;
-  this.description = description;
-  this.url = url;
-  this.images = images;
-
-}
 
 $("#mapDiv").append(googleMap)
-
-
-function onlineCourse(title, school, dates, url){
-
-  this.title = title;
-  this.school = school;
-  this.dates = dates;
-  this.url = url;
-
-}
