@@ -51,12 +51,14 @@ var work = {
     cof.employer = "Conservatory of Flowers";
     cof.location = "San Francisco";
     cof.years = "4 years";
-    cof.description = "Volunteered as a Jungle Guide (docent) for 2nd to 5th grade field tripts to the " +
+    cof.description = "Volunteered as a Jungle Guide (docent) for 2nd to 5th grade field trips to the " +
     "Conservatory of Flowers, which is a historical green house in Golden Gate Park.";
 
     cof.addtowork();
 
-    var pwc = new job("Intern", "PricewaterhouseCoopers LLP", "Sydney, Austrailia", "6 months", "Performed work at the consultant level for various teams including Corporate Social Responsibility auditing and writing material for publication.")
+    var pwc = new job("Intern", "PricewaterhouseCoopers LLP", "Sydney, Austrailia", "6 months", 
+    "Performed work at the consultant level for various teams including Corporate Social" + 
+    " Responsibility auditing and writing material for publication.")
 //    console.log(pwc)
     pwc.addtowork();
   //  console.log(cof)
