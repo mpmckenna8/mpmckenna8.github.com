@@ -124,7 +124,15 @@ var projects = {projects:[],
   init:function(){
 
 // showing the constructor function for projects if i want to use it
-// function Project(title, dates, description, url, images){
+// function Project(title, dates, description, url, images) { ... }
+
+  let sfpdmap = new Project( "SFPD incidents 3d Hex map", "2019-Present", 
+  "Using deck.gl (a fancy Uber made data viz library) to create a heatmap of SFPD Incident reports.",
+  "https://mpmckenna8.github.io/sfviz/?start_date=2020-05-01&end_date=2020-05-31", 
+  [{"url":"images/sfpd_crimes.jpg"}])
+
+  projects.projects.push( sfpdmap )
+
 
   var myBlocks = new Project("My bl.ocks",
   "2010-Present",
@@ -134,7 +142,7 @@ var projects = {projects:[],
   projects.projects.push(myBlocks)
 
   var ccsfMap = new Project("CCSF Campuses/buildings Map", "2015-2016", "A map to show and help people find out where all the City college of San Francisco Campuses and buildings are.",
-    "http://mpmckenna8.github.io/ccsfmapapp/site/", [] );
+    "http://mpmckenna8.github.io/ccsfmapapp/site/", [{"url":"images/ccsfmap.png"}] );
 
   //   ccsfMap.description = "A map to show and help people find out where all the City college of San Francisco Campuses and buildings are."
     console.log(ccsfMap)
@@ -146,8 +154,8 @@ var projects = {projects:[],
     "dates":"2015",
     "description":"A page where you can check out the districts for the upper and lower houses of the California State Congress.",
     "url":"http://secure-sands-4200.herokuapp.com/#/map",
-    "images":[{
-      "url":"images/CAmap.jpg"}
+    "images":[
+      {"url":"images/CAmap.jpg"}
       ]
     }
 
@@ -157,10 +165,10 @@ var projects = {projects:[],
     var maptimesSphVe =   {
         "title":"Maptimes Spherical Veronoi Map",
         "dates":"2015",
-        "description":"Pretty much copied a Joson Davies spherical veronoi inserting Maptimes for the points.",
+        "description":"Pretty much copied a Jason Davies spherical veronoi inserting Maptimes for the points.",
         "url":"http://mpmckenna8.github.io/d3prac/sphver/index.html",
         "images":[
-
+          {"url":"images/maptime_sphere.png"}
         ]
       };
 
@@ -201,6 +209,8 @@ var projects = {projects:[],
     projects.projects.push(bikeAccidentsMap)
 
     projects.projects.push(badgers);
+
+    console.log('inited projects but sfpd one not showing ups', projects.projects)
 
 
   }}
@@ -252,7 +262,9 @@ var view = {
 
        if(projectos[i].images.length > 0){
          for (image in projectos[i].images){
-           var formimage = HTMLprojectImage.replace(/%data%/g, projectos[i].images[image].url);
+           var formimage = HTMLprojectImage.replace(/%data%/g, projectos[i].images[image].url)
+              .replace('#', projectos[i].url);
+
            $(".project-entry:last").append(formimage)
           }
         }
